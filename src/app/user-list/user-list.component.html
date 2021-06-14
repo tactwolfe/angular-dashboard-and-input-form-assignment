@@ -1,0 +1,32 @@
+<button class="btn btn-dark" style="margin: 30px 0 30px 90%;" routerLink="/user_create"> + Add an User</button>
+<table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">User ID</th>
+        <th scope="col">User Name</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Age</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Country</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = 'let user of userList;let i = index'>
+        <td>{{user.id}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.phone}}</td>
+        <td>{{user.age}}</td>
+        <td>{{user.gender}}</td>
+        <td>{{user.country}}</td>
+        <td>
+            <tr>
+                <button class="btn btn-primary" style="margin: 0 10px 0 0;" routerLink='/user_view/{{user.id}}'>View</button>
+                <button class="btn btn-info" style="margin: 0 10px 0 0;"routerLink='/user_edit/{{user.id}}'>Edit</button>
+                <button class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button>
+            </tr>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>

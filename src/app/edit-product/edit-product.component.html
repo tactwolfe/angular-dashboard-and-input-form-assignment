@@ -1,0 +1,27 @@
+<div style="margin: 100px;">
+    <form [formGroup] ="ProductForm" (ngSubmit)="updateProduct()">
+
+        <div class="mb-3">
+          <label for="name" class="form-label">Product Name</label>
+          <input type="text" class="form-control" id="name" formControlName="productname">
+        </div>
+
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Type</label>
+            <select class="form-select" id="inputGroupSelect01" formControlName="type">
+              <option selected>Choose...</option>
+              <option value="Stationary">Stationary</option>
+              <option value="Appliances">Appliances</option>
+              <option value="Furniture">Furniture</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="Quantity" class="form-label">Quantity</label>
+            <input type="text" class="form-control" id="Quantity" formControlName="quantity">
+        </div>
+
+        <button type="submit" class="btn btn-primary"[disabled]="!ProductForm.valid" >Submit</button>
+        <button class="btn btn-danger" style="margin: 0 0 0 88%;" routerLink="/product">Go Back</button>
+      </form>
+</div>

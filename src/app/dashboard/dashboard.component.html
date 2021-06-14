@@ -1,0 +1,30 @@
+
+    <h1 class="mt-4">Dashboard</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Dashboard</li>
+    </ol>
+    <div class="row">
+        <div class="col-xl-3 col-md-6" *ngFor="let c of data">
+            <app-card [cardcolor]="c.cardcolor" [cardtype]="c.cardtype"></app-card>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-area me-1"></i>
+                    Area Chart Example
+                </div>
+                <div class="card-body"><img src="https://images.ctfassets.net/fevtq3bap7tj/3BYktkLsgvI4lJD9fCsfEF/e252818198e2745204fb1e9ac6a0a22f/QSxzkT1z.png" alt="area chart" style="width: 100%;"></div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-bar me-1"></i>
+                    Bar Chart Example
+                </div>
+                <div class="card-body"><img src="https://docs.moodle.org/dev/images_dev/c/c5/bar_chart.png" alt="Bar Chart" style="width: 89%;"></div>
+            </div>
+        </div>
+    </div>    
