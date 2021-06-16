@@ -1,0 +1,19 @@
+<div class="signup">
+  <form class="signupForm" (submit)="signup()">
+    <img src="../../assets/images/avatar.png" alt="avatar" class="signup-img">
+    <h3>Sign Up</h3>
+    <input type="email" name="email" class="signup_input" placeholder="Email">
+    <label for="email" class="signup_label">Email</label>
+  
+    <input type="password" name="password" class="signup_input" placeholder="Password">
+    <label for="password" class="signup_label">Password</label>
+
+    <input type="password" name="confirm password" class="signup_input" placeholder="Confirm Password">
+    <label for="confirm password" class="signup_label">Confirm Password</label>
+  
+  <button type="submit" class="signup_button" >Sign Up</button>
+    <p>Already a Member? 
+      <span> <a routerLink = ''>Login </a> </span>
+     </p> 
+  </form>
+</div>

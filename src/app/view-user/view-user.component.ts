@@ -13,14 +13,17 @@ export class ViewUserComponent implements OnInit {
   fb:FormBuilder = new FormBuilder;
   UserForm:any;
   currentUserId = 0;
+  currentUserData:any;
 
   constructor( private userService:UserService, private activatedRoute:ActivatedRoute) { 
     this.currentUserId = this.activatedRoute.snapshot.params.id;
   }
 
-  ngOnInit(): void {
-
-    let currentUserData = this.userService.getUserById(this.currentUserId);
+  async ngOnInit():  Promise<any> {
+    await this.userService.getUserById(this.currentUserId).subscribe((res:any)=>{
+      this.currentUserData = res;
+      this.UserForm.patchValue(this.currentUserData);
+    })
 
     this.UserForm = this.fb.group({
       'username':this.fb.control("",Validators.required),
@@ -29,9 +32,5 @@ export class ViewUserComponent implements OnInit {
       'gender':this.fb.control("",Validators.required),
       'country':this.fb.control("",Validators.required)
     })
-
-    this.UserForm.patchValue(currentUserData);
-
   }
-
 }

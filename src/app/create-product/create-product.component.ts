@@ -24,8 +24,10 @@ export class CreateProductComponent implements OnInit {
   }
 
   submitForm(){
-    this.productService.addProduct(this.ProductForm.value);
-    this.route.navigate(['/product']);
+    this.productService.addProduct(this.ProductForm.value).subscribe((res)=>{
+      this.route.navigate(['/dashboard/product']);
+    });
+    
   }
 
 }

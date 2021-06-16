@@ -26,8 +26,8 @@ export class CreateUserComponent implements OnInit {
   }
 
   submitForm(){
-    this.userService.addUser(this.UserForm.value);
-    this.route.navigate(['/user']);
+    this.userService.addUser(this.UserForm.value).subscribe((res)=>{
+      this.route.navigate(['/dashboard/user']);
+    });
   }
-
 }

@@ -13,14 +13,17 @@ export class EditUserComponent implements OnInit {
   fb:FormBuilder = new FormBuilder;
   UserForm:any;
   currentUserId = 0;
+  currentUserData:any;
 
   constructor( private userService:UserService , private route:Router ,private activatedRoute:ActivatedRoute) {
     this.currentUserId = this.activatedRoute.snapshot.params.id;
    }
 
-  ngOnInit(): void {
-
-    let currentUserData = this.userService.getUserById(this.currentUserId);
+  async ngOnInit(): Promise<any> {
+    await this.userService.getUserById(this.currentUserId).subscribe((res:any)=>{
+      this.currentUserData = res;
+      this.UserForm.patchValue(this.currentUserData);
+    })
 
     this.UserForm = this.fb.group({
       'username':this.fb.control("",Validators.required),
@@ -30,13 +33,15 @@ export class EditUserComponent implements OnInit {
       'country':this.fb.control("",Validators.required)
     })
 
-    this.UserForm.patchValue(currentUserData);
+   
 
   }
 
   updateUser(){
-    this.userService.updateUserById(this.currentUserId,this.UserForm.value);
-    this.route.navigate(['/user']);
+    this.userService.updateUserById(this.currentUserId,this.UserForm.value).subscribe((res)=>{
+      this.route.navigate(['/dashboard/user']);
+    });
+
   }
 
 }

@@ -1,0 +1,98 @@
+h3{
+  text-align: center;
+  padding-bottom: 10px;
+}
+p{
+  padding-top: 20px;
+  text-align: center;
+}
+a{
+  color: rgb(63, 45, 129);
+  text-decoration: none;
+}
+.signup{
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background-image: linear-gradient(to right, pink,rgb(201, 70, 92) , purple);
+ }
+.signupForm{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  background-color: rgba(128, 128, 128, 0.473);
+  padding: 50px;
+  border-radius: 30px;
+}
+.signup-img{
+  height: 30%;
+  width: 30%;
+  align-self: center;
+  padding-bottom: 20px;
+}
+
+.signup_input{
+  font-size: 1.2rem;
+  padding: 1rem 2rem;
+  border-radius: 2px;
+  background-color: rgba(179, 169, 169, 0.562);
+  border: none;
+  font-family: inherit;
+  border-bottom:  3px solid transparent;
+  width: 100%;
+  display: block;
+  color: inherit;
+}
+
+.signup_input:placeholder-shown + .signup_label{
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4rem);
+}
+
+.signup_input::-webkit-input-placeholder{
+  color: rgb(92, 98, 226); 
+}
+
+.signup_input:focus{
+  outline: none;
+  border-bottom:  3px solid rgb(92, 98, 226);
+}
+
+.signup_input:focus:invalid{
+  border-bottom: 3px solid  orangered;
+}
+
+.signup_label{
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-left: 2rem;
+  margin-top: .7rem;
+  margin-bottom: .7rem;
+  display: block;
+  transition: all .3s;
+}
+
+.signup_button{
+  background-color: rgb(92, 98, 226);
+  color: white;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 20px;
+  transition: all .2s;
+}
+
+.signup_button:hover{
+  background-color: orangered;
+  transform: translateY(-3px);
+}
+
+.signup_button:active{
+  background-color: green;
+  color: black;
+  transform: translateY(-1px);
+}
+
+  
+
+

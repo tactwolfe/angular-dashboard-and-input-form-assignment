@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -20,6 +21,9 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { ViewUserComponent } from './view-user/view-user.component';
 import { ProductService } from './product.service';
+import { LoginComponent } from './login/login.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { DashboardcontainerComponent } from './dashboardcontainer/dashboardcontainer.component';
 
 
 
@@ -38,12 +42,16 @@ import { ProductService } from './product.service';
     CreateUserComponent,
     EditUserComponent,
     ViewUserComponent,
+    LoginComponent,
+    SignUpComponent,
+    DashboardcontainerComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

@@ -1,0 +1,19 @@
+<div class="login">
+  <form class="loginForm" (submit)="login()">
+    <img src="../../assets/images/avatar.png" alt="avatar" class="login-img">
+    <h3>Login Page</h3>
+    <input type="email" name="email" class="login_input" placeholder="Email">
+    <label for="email" class="login_label">Email</label>
+  
+    <input type="password" name="password" class="login_input" placeholder="Password">
+    <label for="password" class="login_label">Password</label>
+  
+    <!-- <input type="submit" value="Login" class="login_button"> -->
+    <button class="login_button" type="submit">Login</button>
+
+   <p>Not a Member? 
+     <span> <a routerLink = '/signup'>Sign Up </a> </span>
+    </p> 
+  </form>
+</div>
+

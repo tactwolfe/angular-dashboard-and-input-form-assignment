@@ -9,17 +9,34 @@ import { ProductService } from '../product.service';
 export class ProductListComponent implements OnInit {
 
   productList:Array<any>=[];
+  refresh:any;
 
   constructor(private productService:ProductService) { }
 
   ngOnInit(): void {
+    this.loadProduct();
+    this.refresh = setInterval(()=>{
+      this.loadProduct();
+    },3000)
 
-    this.productList = this.productService.getProduct();
-    
   }
 
+  ngOnDestroy() {
+    clearInterval(this.refresh);
+  }
+
+  loadProduct(){
+    this.productService.getProduct().subscribe((res:any)=>{
+      this.productList = res ;
+    })
+  }
+
+
+
   deleteProduct(id:number){
-    this.productService.deleteProductById(id);
+    this.productService.deleteProductById(id).subscribe((res)=>{
+      this.loadProduct();
+    });
   }
 
 }
